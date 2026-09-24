@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+.vercel/
+
+# Raw client material (brief, pitch deck, original images) — not published.
+# The web-ready copies live in assets-src/ and public/.
+/file.txt
+/*.pptx
+/ChatGPT Image*
+/WhatsApp Image*

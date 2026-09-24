@@ -1,0 +1,20 @@
+{
+  "name": "gepu-academy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "node --no-warnings scripts/check-build.mjs",
+    "start": "npx serve out",
+    "images": "node scripts/make-images.mjs"
+  },
+  "dependencies": {
+    "next": "^15.5.26",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4"
+  }
+}

@@ -1,0 +1,51 @@
+.band {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(100deg, rgba(7, 29, 66, 0.96), rgba(11, 42, 91, 0.9)),
+    url('/img/skyline.webp') center / cover;
+  color: #cfe0f5;
+  padding-block: clamp(56px, 8vw, 88px);
+  text-align: center;
+}
+
+.inner {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+
+.lines {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 4.5vw, 3rem);
+  line-height: 1.2;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+:global(html[lang='ar']) .lines {
+  text-transform: none;
+  line-height: 1.5;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.text {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 1.1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}

@@ -1,0 +1,417 @@
+/* Shared blocks for the inner content pages (about, presentation, programme). */
+
+.split {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.splitReverse > :first-child {
+  order: 2;
+}
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .splitReverse > :first-child {
+    order: 0;
+  }
+}
+
+.prose p {
+  font-size: 1.08rem;
+}
+
+.photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 5px solid var(--white);
+}
+
+.photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.photo figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 24px 16px 12px;
+  background: linear-gradient(transparent, rgba(7, 29, 66, 0.85));
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Icon + title + text card */
+.feature {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+:global(html:not([lang='ar'])) .feature h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--muted);
+}
+
+:global(.section--navy) .feature p {
+  color: #b7cbe6;
+}
+
+/* Icon rows (campus facts) */
+.facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.facts li {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.facts :global(.icon-badge) {
+  width: 46px;
+  height: 46px;
+}
+
+/* Founder */
+.founderCard {
+  background: var(--navy);
+  color: #cfe0f5;
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 44px);
+  position: relative;
+  overflow: hidden;
+}
+
+.founderCard::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: -30px;
+  top: -30px;
+  width: 180px;
+  aspect-ratio: 0.87;
+  background: url('/img/crest-md.webp') center / contain no-repeat;
+  opacity: 0.08;
+}
+
+.founderCard h2 {
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.role {
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.talentList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: 12px;
+}
+
+.talentList li {
+  display: grid;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--sky-50);
+  border-inline-start: 4px solid var(--gold);
+}
+
+.talentList strong {
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.talentList span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* Motto */
+.motto {
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.motto blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+:global(html[lang='ar']) .motto blockquote {
+  text-transform: none;
+  line-height: 1.5;
+}
+
+.motto p {
+  color: var(--gold);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 12px 0 0;
+}
+
+.navyCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.navyCard h3 {
+  color: var(--white);
+}
+
+/* Commitment pillars */
+.pillars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+  counter-reset: pillar;
+}
+
+.pillars li {
+  counter-increment: pillar;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--white);
+  border: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+
+.pillars li::before {
+  content: counter(pillar, decimal-leading-zero);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+/* Age cards */
+.ageCard {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.ageRange {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  box-shadow: 0 0 0 6px var(--sky-100);
+  direction: ltr;
+}
+
+.ageCard h3 {
+  font-size: 1.3rem;
+}
+
+.ageCard p {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  .ageCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Phase timeline */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 24px;
+  position: relative;
+}
+
+.phaseCard {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.phaseTop {
+  background: linear-gradient(120deg, var(--navy), var(--navy-700));
+  color: var(--white);
+  padding: 22px 28px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.phaseTop span {
+  color: var(--sky);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+}
+
+.phaseTop h3 {
+  color: var(--white);
+  font-size: 1.8rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.phaseBody {
+  padding: 24px 28px 28px;
+}
+
+/* Criteria */
+.criteria {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1000px) {
+  .criteria {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  }
+}
+
+.criteria li {
+  text-align: center;
+  padding: 28px 18px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.criteria h3 {
+  color: var(--white);
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.criteria p {
+  margin: 0;
+  color: #b7cbe6;
+  font-size: 0.95rem;
+}
+
+/* Recruitment steps */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-inline-start: 64px;
+  padding-bottom: 28px;
+  min-height: 48px;
+  font-size: 1.08rem;
+  color: var(--ink);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: var(--navy-900);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.steps li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 21px;
+  top: 46px;
+  bottom: 2px;
+  width: 2px;
+  background: var(--line);
+}
+
+.blockHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.blockHead h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}

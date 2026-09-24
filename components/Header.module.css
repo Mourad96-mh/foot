@@ -1,0 +1,225 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  /* No backdrop-filter here: it would make the header the containing block
+     of the fixed mobile menu panel and squash it to the header's height. */
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Thin argentine stripe on top of the header. */
+.header::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sky) 0 33%, var(--white) 33% 66%, var(--sky) 66%);
+}
+
+.bar {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.crest {
+  width: 46px;
+  height: auto;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  direction: ltr;
+}
+
+.wordmark strong {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+
+.wordmark small {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sky-600);
+  margin-top: 3px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-inline: auto;
+}
+
+.link {
+  position: relative;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--sky-600);
+}
+
+.active {
+  color: var(--sky-600);
+}
+
+.link.active::after {
+  content: '';
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 2px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.langs {
+  display: flex;
+  background: var(--sky-50);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.lang {
+  min-width: 36px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.lang:hover {
+  color: var(--navy);
+}
+
+.langActive {
+  background: var(--navy);
+  color: var(--white) !important;
+}
+
+.cta {
+  min-height: 42px;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+}
+
+.burger {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--navy);
+  cursor: pointer;
+  place-items: center;
+}
+
+.panel {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .nav,
+  .langs {
+    display: none;
+  }
+  .burger {
+    display: grid;
+  }
+  .actions {
+    margin-inline-start: auto;
+  }
+  .panel.panelOpen {
+    display: block;
+    position: fixed;
+    inset: calc(var(--header-h) + 4px) 0 0 0;
+    background: var(--white);
+    overflow-y: auto;
+    padding-block: 12px 40px;
+    border-top: 1px solid var(--line);
+  }
+  .panel nav {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta {
+    display: none;
+  }
+  .wordmark small {
+    font-size: 0.6rem;
+  }
+}
+
+.mLink {
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.mLink.active {
+  color: var(--sky-600);
+  border-inline-start: 4px solid var(--gold);
+  padding-inline-start: 12px;
+}
+
+.mCta {
+  margin-top: 24px;
+}
+
+.mLangs {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.mLang {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+}

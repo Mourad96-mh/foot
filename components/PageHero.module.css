@@ -1,0 +1,57 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 90px, rgba(108, 172, 228, 0.08) 90px 150px),
+    linear-gradient(135deg, var(--navy-900), var(--navy) 60%, var(--navy-700));
+  color: #cfe0f5;
+  padding-block: clamp(56px, 9vw, 104px);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: -40px;
+  bottom: -60px;
+  width: min(360px, 50vw);
+  aspect-ratio: 0.87;
+  background: url('/img/crest-md.webp') center / contain no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 6px;
+  background: var(--gold);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero :global(.eyebrow) {
+  color: var(--sky);
+}
+
+.title {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  max-width: 22ch;
+  text-transform: uppercase;
+}
+
+:global(html[lang='ar']) .title {
+  text-transform: none;
+  font-size: clamp(1.7rem, 4.2vw, 2.8rem);
+}
+
+.lead {
+  max-width: 62ch;
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  margin: 0;
+}
