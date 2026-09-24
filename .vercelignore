@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+file.txt
+*.pptx
+ChatGPT Image*
+WhatsApp Image*
