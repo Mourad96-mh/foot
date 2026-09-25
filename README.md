@@ -1,6 +1,6 @@
 # GEPU International Football Academy — website
 
-Trilingual website (Arabic by default, RTL · French · English) for GEPU International Football Academy (San Luis, Argentina).
+Multilingual website (Arabic by default, RTL · French · English · Spanish) for GEPU International Football Academy (San Luis, Argentina).
 Built with Next.js 15 as a **static export** (plain HTML, no server). See `PLAN.md` for the engineering plan and decisions.
 
 ## Commands
@@ -31,7 +31,7 @@ All in **`lib/site.js`** unless noted:
 
 ## How it works
 
-- **All text** is in `i18n/ar.js`, `i18n/fr.js`, `i18n/en.js` (same structure in each; the build check fails if the keys differ).
+- **All text** is in `i18n/ar.js`, `i18n/fr.js`, `i18n/en.js`, `i18n/es.js` (same structure in each; the build check fails if the keys differ).
 - **Pages**: `app/[locale]/…` → home, about, presentation, programme, registration, gallery, contact, legal.
 - **Registration form** (`components/RegistrationForm/`): the same 5 sections as the paper form + a review/consent step. The fields are defined in `schema.js`. On submit it opens WhatsApp or the e-mail app with a structured message; the site stores nothing (a draft is kept in the browser's sessionStorage until it's sent). It can also be printed or saved as a PDF.
 - **Gallery**: add an entry to `data/gallery.js` (photo or YouTube video). No other code change is needed.
@@ -39,7 +39,7 @@ All in **`lib/site.js`** unless noted:
 
 ## Quality results (2026-09-24)
 
-- Build: 24 pages (8 × 3 languages) + redirect + 404. The QA check passes (unique titles, meta lengths, one H1, hreflang, JSON-LD).
+- Build: 32 pages (8 × 4 languages) + redirect + 404. The QA check passes (unique titles, meta lengths, one H1, hreflang, JSON-LD).
 - Lighthouse (mobile, simulated slow 4G): Performance 92–93 · Accessibility 100 · Best Practices 100 · SEO 100 · CLS 0.
-- No horizontal overflow at any width from 320 to 1440px in AR/EN/FR; mobile menu tested.
+- No horizontal overflow at any width from 320 to 1440px in AR/EN/FR/ES; mobile menu tested.
 - Registration form: 26/26 functional checks pass (validation, conditional fields, age calculation, draft restore, WhatsApp message content).

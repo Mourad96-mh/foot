@@ -4,7 +4,7 @@ import { site } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
-// One entry per page, with its three language alternates.
+// One entry per page, with its language alternates.
 export default function sitemap() {
   const lastModified = new Date();
   return pages.flatMap((page) =>

@@ -37,7 +37,7 @@ export default function SiteSchema({ locale, dict }) {
         '@id': `${site.url}/#website`,
         url: site.url,
         name: site.name,
-        inLanguage: ['ar', 'fr', 'en'],
+        inLanguage: ['ar', 'fr', 'en', 'es'],
         publisher: { '@id': `${site.url}/#org` },
       },
     ],

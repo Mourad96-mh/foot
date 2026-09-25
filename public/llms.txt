@@ -10,7 +10,7 @@
 - Facilities: pitches, video rooms, performance centre
 - Evaluation criteria: technique, speed, game intelligence, personality, character
 - Philosophy: "Train before winning — the player first, then the result"
-- Languages of the website: Arabic, French, English
+- Languages of the website: Arabic, French, English, Spanish
 
 ## Founder
 - Pelayo Morón Pendás — bilingual lawyer (English/Spanish) and talent scout with 20+ years in international youth recruitment; former head of recruitment for the Fulham FC academy in Spain and Portugal.
@@ -23,3 +23,4 @@
 - [Registration form](https://gepu-academy.com/en/registration/)
 - [Contact](https://gepu-academy.com/en/contact/)
 - [Français](https://gepu-academy.com/fr/)
+- [Español](https://gepu-academy.com/es/)

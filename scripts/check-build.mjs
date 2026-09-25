@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import ar from '../i18n/ar.js';
 import fr from '../i18n/fr.js';
 import en from '../i18n/en.js';
+import es from '../i18n/es.js';
 
 let problems = 0;
 const fail = (msg) => { problems++; console.log('  ✗', msg); };
@@ -14,7 +15,7 @@ const shape = (o, p = '') =>
   : o && typeof o === 'object' ? Object.entries(o).flatMap(([k, v]) => shape(v, p ? `${p}.${k}` : k))
   : [p];
 const base = new Set(shape(en));
-for (const [name, d] of [['ar', ar], ['fr', fr]]) {
+for (const [name, d] of [['ar', ar], ['fr', fr], ['es', es]]) {
   const s = new Set(shape(d));
   for (const k of base) if (!s.has(k)) fail(`${name} missing ${k}`);
   for (const k of s) if (!base.has(k)) fail(`${name} extra ${k}`);
@@ -23,7 +24,7 @@ console.log(`dictionaries: ${base.size} keys checked`);
 
 // 2. Built pages.
 const walk = (d) => readdirSync(d).flatMap((f) => (statSync(join(d, f)).isDirectory() ? walk(join(d, f)) : [join(d, f)]));
-const pages = walk('out').filter((f) => f.endsWith('index.html') && /^out[\\/](ar|fr|en)[\\/]/.test(f));
+const pages = walk('out').filter((f) => f.endsWith('index.html') && /^out[\\/](ar|fr|en|es)[\\/]/.test(f));
 const decode = (s) => s.replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 const titles = new Map();
 for (const f of pages) {
@@ -44,7 +45,7 @@ for (const f of pages) {
   if (desc.length < 70 || desc.length > 170) fail(`${rel}: description ${desc.length} chars`);
   if (h1 !== 1) fail(`${rel}: ${h1} h1`);
   if (!canon) fail(`${rel}: no canonical`);
-  if (alts !== 4) fail(`${rel}: ${alts} hreflang`);
+  if (alts !== 5) fail(`${rel}: ${alts} hreflang`);
   if (!lang) fail(`${rel}: no lang/dir`);
   if (ld < 1) fail(`${rel}: no JSON-LD`);
   if (!/og:image/.test(head)) fail(`${rel}: no og:image`);

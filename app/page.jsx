@@ -7,8 +7,8 @@ export const metadata = {
 };
 
 // Static export has no middleware: send visitors to their language here.
-// Arabic is the default; French/English browsers go to their version.
-const script = `(function(){var l=(navigator.language||'').slice(0,2);var t=l==='fr'?'fr':l==='en'?'en':'ar';location.replace('/'+t+'/');})();`;
+// Arabic is the default; French/English/Spanish browsers go to their version.
+const script = `(function(){var l=(navigator.language||'').slice(0,2);var t=l==='fr'?'fr':l==='en'?'en':l==='es'?'es':'ar';location.replace('/'+t+'/');})();`;
 
 export default function RootRedirect() {
   return (
@@ -19,7 +19,7 @@ export default function RootRedirect() {
       </head>
       <body style={{ fontFamily: 'system-ui, sans-serif', textAlign: 'center', padding: '15vh 16px' }}>
         <p>
-          <a href="/ar/">العربية</a> · <a href="/fr/">Français</a> · <a href="/en/">English</a>
+          <a href="/ar/">العربية</a> · <a href="/fr/">Français</a> · <a href="/en/">English</a> · <a href="/es/">Español</a>
         </p>
       </body>
     </html>
